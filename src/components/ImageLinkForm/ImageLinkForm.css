@@ -1,0 +1,9 @@
+.form {
+    width: 700px;
+    border: ridge white;
+    border-width: 1px;
+    }
+
+button {
+    cursor: pointer;
+}
