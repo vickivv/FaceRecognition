@@ -50,24 +50,25 @@ const setupClarifai = (imgUrl) => {
       .catch(error => console.log('error', error)); */
 };
 
+const initialState = {
+  input: '',
+  imageurl: '',
+  box: {},
+  route: 'signin',
+  isSignedIn: false,
+  user: {
+    id: '',
+    name: '',
+    email: '',
+    entries: 0,
+    joined: '',
+  }
+}
 
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      input: '',
-      imageurl: '',
-      box: {},
-      route: 'signin',
-      isSignedIn: false,
-      user: {
-        id: '',
-        name: '',
-        email: '',
-        entries: 0,
-        joined: '',
-      }
-    }
+    this.state = initialState
   };
 
   loadUser = (data) => {
@@ -129,12 +130,7 @@ class App extends Component {
     if (route === 'home') {
       this.setState({isSignedIn: true})
     } else {
-      this.setState({
-        isSignedIn: false,
-        input: '',
-        imageurl: '',
-        box: {},
-      })
+      this.setState(initialState)
     }
     this.setState({route: route});
   };
